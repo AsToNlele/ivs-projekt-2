@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn1" Content="Button" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="40" Click="btn1_Click"/>
 
     </Grid>
 </Window>

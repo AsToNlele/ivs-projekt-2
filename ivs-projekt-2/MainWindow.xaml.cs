@@ -24,5 +24,10 @@ namespace ivs_projekt_2
         {
             InitializeComponent();
         }
+
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello World!");
+        }
     }
 }

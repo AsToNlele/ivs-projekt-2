@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj": {}
+    "C:\\Users\\theas\\Source\\Repos\\AsToNlele\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj": {
+    "C:\\Users\\theas\\Source\\Repos\\AsToNlele\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj",
+        "projectUniqueName": "C:\\Users\\theas\\Source\\Repos\\AsToNlele\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj",
         "projectName": "ivs-projekt-2",
-        "projectPath": "D:\\Projects\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj",
+        "projectPath": "C:\\Users\\theas\\Source\\Repos\\AsToNlele\\ivs-projekt-2\\ivs-projekt-2\\ivs-projekt-2.csproj",
         "packagesPath": "C:\\Users\\theas\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\ivs-projekt-2\\ivs-projekt-2\\obj\\",
+        "outputPath": "C:\\Users\\theas\\Source\\Repos\\AsToNlele\\ivs-projekt-2\\ivs-projekt-2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\theas\\AppData\\Roaming\\NuGet\\NuGet.Config",
