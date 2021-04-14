@@ -1,46 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace CalcTests
 {
     class MathCalc
     {
-        public static double Add(string num1, string num2)
+        public static double Add(double num1, double num2)
         {
-            throw new NotImplementedException();
+            return num1 + num2;
         }
-        public static double Sub(string num1, string num2)
+        public static double Sub(double num1, double num2)
         {
-            throw new NotImplementedException();
+            return num1 - num2;
         }
-        public static double Mul(string num1, string num2)
+        public static double Mul(double num1, double num2)
+        {
+            return num1 * num2;
+        }
+
+        public static double Div(double num1, double num2)
+        {
+            return num1 / num2;
+        }
+
+        public static double Pow(double num, double exp)
+        {
+            if (exp == 0)
+            {
+                return 1;
+            }
+            double result = num;
+            for (int i = 0; i < (exp - 1); i++)
+            {
+                result *= num;
+            }
+            return result; 
+        }
+
+        public static double Sqrt(double a, int b)
         {
             throw new NotImplementedException();
         }
 
-        public static double Div(string num1, string num2)
+        public static double Abs(double num)
         {
-            throw new NotImplementedException();
+            if(num > 0)
+            {
+                return num;
+            }
+            return -1 * num;
         }
-
-        public static double Pow(string num, string exp)
+        public static double Fact(double num)
         {
-            throw new NotImplementedException();
-        }
-
-        public static double Sqrt(string num, string exp)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static double Abs(string num)
-        {
-            throw new NotImplementedException();
-        }
-        public static double Fact(string num)
-        {
-            throw new NotImplementedException();
+            double result = 1;
+            double tempNumber = MathCalc.Abs(num);
+            for(int i = 2; i <= tempNumber; i++)
+            {
+                result*= i;
+            }
+            if (num < 0)
+            {
+                result *= -1;
+            }
+            return result;
         }
     }
 }
