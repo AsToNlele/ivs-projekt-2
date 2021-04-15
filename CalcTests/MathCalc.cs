@@ -25,23 +25,29 @@ namespace CalcTests
             return num1 / num2;
         }
 
-        public static double Pow(double num, double exp)
+        public static double Pow(double num, int exp)
         {
             if (exp == 0)
             {
                 return 1;
             }
-            double result = num;
-            for (int i = 0; i < (exp - 1); i++)
+            if (num == 0)
             {
-                result *= num;
+                return 0;
             }
-            return result; 
+            double exponent = Convert.ToDouble(exp);
+            double result = Math.Pow(num, exponent);
+            return result;
         }
 
-        public static double Sqrt(double a, int b)
+        public static double Root(double num, int exp)
         {
-            throw new NotImplementedException();
+            double exponent = Convert.ToDouble(exp);
+
+            double result = Math.Pow(Abs(num), (1.0 / exponent));
+            if (num < 0)
+                result *= -1;
+            return result;
         }
 
         public static double Abs(double num)
@@ -55,8 +61,7 @@ namespace CalcTests
         public static double Fact(double num)
         {
             double result = 1;
-            double tempNumber = MathCalc.Abs(num);
-            for(int i = 2; i <= tempNumber; i++)
+            for (int i = 2; i <= Abs(num); i++)
             {
                 result*= i;
             }
