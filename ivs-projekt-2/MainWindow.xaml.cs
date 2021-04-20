@@ -27,7 +27,7 @@ namespace ivs_projekt_2
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World!");
+            MessageBox.Show("Hello Worldd!");
         }
     }
 }
