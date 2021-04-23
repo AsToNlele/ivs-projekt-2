@@ -32,6 +32,9 @@
         <Button x:Name="btnsq" Content="sqrt" Grid.Column="1" HorizontalAlignment="Left" Margin="154,322,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btnsq_Click"/>
         <Button x:Name="btnab" Content="abs" Grid.Column="1" HorizontalAlignment="Left" Margin="208,322,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btnab_Click"/>
         <Button x:Name="btn0" Content="0" Grid.Column="1" HorizontalAlignment="Center" Margin="0,223,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btn0_Click" />
+        <Button x:Name="btnco" Content="," Grid.Column="1" HorizontalAlignment="Left" Margin="67,223,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btnco_Click" />
+        <Button x:Name="btnce" Content="CE" Grid.Column="1" HorizontalAlignment="Left" Margin="10,118,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btnce_Click" />
+        <Button x:Name="btnde" Content="DEL" Grid.Column="1" HorizontalAlignment="Left" Margin="10,152,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btnde_Click" />
 
     </Grid>
 </Window>
