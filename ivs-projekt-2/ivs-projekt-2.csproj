@@ -7,4 +7,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\CalcTests\MathCalc.cs" Link="MathCalc.cs" />
+  </ItemGroup>
+
 </Project>
