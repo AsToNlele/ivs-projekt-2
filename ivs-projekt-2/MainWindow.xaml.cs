@@ -47,7 +47,7 @@ namespace ivs_projekt_2
                 txt.Text = output;               
         }
 
-        // pokud je jiz uzivatel zadal nejakou operaci a rozhodl se ji zmenit, prepiseme puvodni zmamenka na aktualni zadanou operaci 
+        // pokud je jiz uzivatel zadal nejakou operaci a rozhodl se ji zmenit, prepiseme puvodni znamenka na aktualni zadanou operaci 
         private void clearOpSigns()
         {
             if (operation != "")
@@ -291,7 +291,8 @@ namespace ivs_projekt_2
             operation = "";
             txt.Text = output;
         }
-        // zakladni ovladání přes klávesnici
+
+        //  ovladání přes klávesnici
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.D0 || e.Key == Key.NumPad0)
@@ -365,6 +366,22 @@ namespace ivs_projekt_2
             if (e.Key == Key.Delete)
             {
                 btnce.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            if (e.Key == Key.D6 && (Keyboard.IsKeyDown(Key.LeftShift)|| Keyboard.IsKeyDown(Key.RightShift)))
+            {
+                selectOp("^");
+            }
+            if (e.Key == Key.D1 && (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift)))
+            {
+                selectOp("!");
+            }
+            if (e.Key == Key.R)
+            {
+                selectOp("sqrt");
+            }
+            if (e.Key == Key.A)
+            {
+                selectOp("abs");
             }
         } // OnKeyDownHandler()
     } //public class: main window
