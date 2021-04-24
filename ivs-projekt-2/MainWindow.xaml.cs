@@ -238,7 +238,7 @@ namespace ivs_projekt_2
                         txt.Text = nmb;
                         break;
                     case "^":
-                        nmb = MathCalc.Pow(nmb1, nmb2).ToString();
+                        nmb = MathCalc.Pow(nmb1, (int)nmb2).ToString();
                         txt.Text = nmb;
                         break;
                     case "abs":
@@ -246,7 +246,7 @@ namespace ivs_projekt_2
                         txt.Text = nmb;
                         break;
                     case "sqrt":
-                        nmb = MathCalc.Sqrt(nmb1, 5).ToString();
+                        nmb = MathCalc.Root(nmb1, (int)nmb2).ToString();
                         txt.Text = nmb;
                         break;
                     case "!":
