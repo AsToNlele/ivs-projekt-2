@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt_2"
         mc:Ignorable="d"
-        Title="Calcul8or" Height="400" Width="300">
+        Title="Calcul8or" Height="400" Width="300"  KeyDown="OnKeyDownHandler">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="157*"/>
         </Grid.ColumnDefinitions>
-        <TextBox  x:Name="txt" Grid.Column="9" HorizontalAlignment="Center" Margin="0,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Height="60" TextChanged="txt_TextChanged" />
+        <TextBox  x:Name="txt" Grid.Column="9" HorizontalAlignment="Center" Margin="0,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" Height="60" TextChanged="txt_TextChanged"  />
 
         <Button x:Name="btn9" Content="9" HorizontalAlignment="Left" Margin="67,118,0,0" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="40" Click="btn9_Click"/>
         <Button x:Name="btn8" Content="8" Grid.Column="1" HorizontalAlignment="Center" Margin="0,118,0,0" Height="20" Width="40" VerticalAlignment="Top" Click="btn8_Click"/>

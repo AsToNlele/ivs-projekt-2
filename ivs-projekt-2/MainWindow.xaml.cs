@@ -23,8 +23,8 @@ namespace ivs_projekt_2
 
     /* 
      TODO:
-    CE button, osetrit vyjimky, zavolat push btneq v kazde operaci, zavolat push btnX pri zmacknuti klavesy, 
-    grafika, button carka
+     osetrit ", a znamenko po sobe vyvola chybu", dodelat ovladani pres klavesnici, osetrit konflikt specialnich operaci (abs,sqr),
+     vypnout zadavani primo do textboxu, grafika, napoveda
      */
 
     public partial class MainWindow : Window
@@ -44,26 +44,33 @@ namespace ivs_projekt_2
         {
                 nmb = nmb + x;
                 output = output + x;
-                txt.Text = output;
+                txt.Text = output;               
         }
         // vybere operaci tak, aby byla dale zpracovatelna v btneq
         private void selectOp(string x)
         {
+            // podminka, ktera zarucuje, ze kdyz nezavolame rovna se na konci operace, zavola se samo
+            // nmb!="" je osetreni podminky, aby se nam v btneq neprovadeli operace s prazdnym cislem,
+            // coz muze nastat, ale nevim proc
+            if (!firstOp && operation != "" && nmb!="")
+            {
+                btneq.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
             // zjistujeme, jestli chceme zadavat kompletne nove cislo do nmb1 nebo do nej nacteme vysledek predchoziho vypoctu
             if (firstOp)
             {
                nmb1 = double.Parse(nmb);
                firstOp = false;
-            }
-            
+            }           
             /* pokud je jiz uzivatel zadal nejakou operaci a rozhodl se ji zmenit, smazeme posledni index v outputu, aby se nam 
-                nam nestalo ze mame dve operace za sebou */
+                nam nestalo ze mame dve operace za sebou */         
             if (operation != "")
             {
                 output = output.Remove(output.Length - 1, 1);
             }
             //vynulujeme nmb aby jsme do nej mohli nahravat druhe cislo v binarni operaci
             nmb = "";
+            //TODO prepsat do nove funkce a vymyslet jeji nazev
             if (x == "sqrt")
             {
                 output = "\u221A ( " + output + " )";
@@ -191,54 +198,39 @@ namespace ivs_projekt_2
             {
                 case "+":
                     //result = nmb1 + int.Parse(nmb);
-                    nmb = MathCalc.Add(nmb1, int.Parse(nmb)).ToString();                 
+                    nmb = MathCalc.Add(nmb1, double.Parse(nmb)).ToString();                 
                     txt.Text = nmb;              
                     break;
-                case "-":
-                    //result = nmb1 - int.Parse(nmb);
-                    /*result = MathCalc.Sub(nmb1, double.Parse(nmb));          
-                    txt.Text = result.ToString();*/
-                    nmb = MathCalc.Sub(nmb1, int.Parse(nmb)).ToString();
+                case "-":                  
+                    nmb = MathCalc.Sub(nmb1, double.Parse(nmb)).ToString();
                     txt.Text = nmb;
                     break;
                 case "*":
-                    //result = nmb1 * int.Parse(nmb);
-                    /* result = MathCalc.Mul(nmb1, double.Parse(nmb));
-                     txt.Text = result.ToString();*/
-                    nmb = MathCalc.Mul(nmb1, int.Parse(nmb)).ToString();
+                    nmb = MathCalc.Mul(nmb1, double.Parse(nmb)).ToString();
                     txt.Text = nmb;
                     break;                   
                 case "/":
-                    // result = MathCalc.Div(nmb1, double.Parse(nmb));
-                    //  result = nmb1 / int.Parse(nmb);
-                    // txt.Text = result.ToString();
-                    nmb = MathCalc.Div(nmb1, int.Parse(nmb)).ToString();
+                    nmb = MathCalc.Div(nmb1, double.Parse(nmb)).ToString();
                     txt.Text = nmb;       
                     break;
                 case "^":
-                    /* result = MathCalc.Pow(nmb1, double.Parse(nmb));
-                     txt.Text = result.ToString();*/
-                    nmb = MathCalc.Pow(nmb1, int.Parse(nmb)).ToString();
+                    nmb = MathCalc.Pow(nmb1, double.Parse(nmb)).ToString();
                     txt.Text = nmb;
                     break;
                 case "abs":
-                    /*
-                    result = MathCalc.Abs(nmb1);
-                    txt.Text = result.ToString();*/
                     nmb = MathCalc.Abs(nmb1).ToString();
                     txt.Text = nmb;
                     break;
                 case "sqrt":
-                    /* result = MathCalc.Sqrt(nmb1,5);
-                     txt.Text = result.ToString();*/
                     nmb = MathCalc.Sqrt(nmb1, 5).ToString();
                     txt.Text = nmb;
                     break;
                 case "!":
-                    /* result = MathCalc.Fact(nmb1);
-                     txt.Text = result.ToString();*/
                     nmb = MathCalc.Fact(nmb1).ToString();
                     txt.Text = nmb;
+                    break;
+                // pri kliknuti na rovnase bez zadane operace se nic neprovede
+                case "":
                     break;
                 default:
                     txt.Text = err; 
@@ -257,9 +249,9 @@ namespace ivs_projekt_2
                 output = output.Remove(output.Length - 1, 1);
                 nmb = nmb.Remove(nmb.Length - 1, 1);
                 txt.Text = output;
-            }           
+            }               
         }
-
+        // clear all funkce
         private void btnce_Click(object sender, RoutedEventArgs e)
         {
             //nastavi vsechny promenne do defaultniho stavu
@@ -270,5 +262,81 @@ namespace ivs_projekt_2
             operation = "";
             txt.Text = output;
         }
-    }
-}
+        // zakladni ovladání přes klávesnici
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.D9 || e.Key == Key.NumPad9)
+            {
+                printOut("0");
+            }
+            if (e.Key == Key.D1|| e.Key == Key.NumPad1)
+            {
+                printOut("1");
+            }
+            if (e.Key == Key.D2 || e.Key == Key.NumPad2)
+            {
+                printOut("2");
+            }
+            if (e.Key == Key.D3 || e.Key == Key.NumPad3)
+            {
+                printOut("3");
+            }
+            if (e.Key == Key.D4 || e.Key == Key.NumPad4)
+            {
+                printOut("4");
+            }
+            if (e.Key == Key.D5 || e.Key == Key.NumPad5)
+            {
+                printOut("5");
+            }
+            if (e.Key == Key.D6 || e.Key == Key.NumPad6)
+            {
+                printOut("6");
+            }
+            if (e.Key == Key.D7 || e.Key == Key.NumPad7)
+            {
+                printOut("7");
+            }
+            if (e.Key == Key.D8 || e.Key == Key.NumPad8)
+            {
+                printOut("8");
+            }
+            if (e.Key == Key.D9 || e.Key == Key.NumPad9)
+            {
+                printOut("9");
+            }
+            if (e.Key == Key.OemComma || e.Key==Key.Decimal)
+            {
+                printOut(",");
+            }
+            if (e.Key == Key.OemPlus|| e.Key == Key.Add)
+            {
+                selectOp("+");
+            }
+            if (e.Key == Key.OemMinus||e.Key==Key.Subtract)
+            {
+                selectOp("-");
+            }
+            if (e.Key == Key.Multiply)
+            {
+                selectOp("*");
+            }
+            if (e.Key == Key.Divide)
+            {
+                selectOp("/");
+            }
+            if (e.Key == Key.Enter)
+            {
+                btneq.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            if (e.Key == Key.Back)
+            {
+                btnde.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+            if (e.Key == Key.Delete)
+            {
+                btnce.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
+        }
+    } //public class: main window
+} //namespace
