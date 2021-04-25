@@ -79,11 +79,13 @@ namespace ivs_projekt_2
         {
             if (x == "sqrt")
             {
-                output = "\u221A ( " + output + " )";
+                output = (output == "") ? "0" : output;
+                output = "\u221A ( " + output + " ) ";
                 txt.Text = output;             
             }
             else if (x == "abs")
             {
+                output = (output == "") ? "0" : output;
                 output = "| " + output + " |";
                 txt.Text = output;
             }
@@ -170,8 +172,15 @@ namespace ivs_projekt_2
                         txt.Text = nmb;
                         break;
                     case "^":
-                        nmb = MathCalc.Pow(nmb1, (int)nmb2).ToString();
-                        txt.Text = nmb;
+                        if (nmb2 % 1 == 0) // podminka pro cele cisla
+                        {
+                            nmb = MathCalc.Pow(nmb1, (int)nmb2).ToString();
+                            txt.Text = nmb;
+                        }
+                        else
+                        {
+                            txt.Text = err;
+                        }
                         break;
                     case "abs":
                             nmb = MathCalc.Abs(nmb1).ToString();
@@ -222,6 +231,12 @@ namespace ivs_projekt_2
             nmb1 = 0;
             operation = "";
             txt.Text = output;
+        }
+
+        private void showHelp()
+        {
+            Help help = new Help();
+            help.Show();
         }
 
         /*
@@ -455,7 +470,7 @@ namespace ivs_projekt_2
 
         private void btnhe_Click(object sender, RoutedEventArgs e)
         {
-
+            showHelp();
         }
     } //public class: main window
 } //namespace
