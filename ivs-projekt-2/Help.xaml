@@ -1,0 +1,69 @@
+﻿<Window x:Class="ivs_projekt_2.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ivs_projekt_2"
+        mc:Ignorable="d"
+        Title="Nápověda" Height="423" Width="450" >
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="20,20,20,10">
+            <RichTextBox Height="auto" BorderThickness="0" IsReadOnly="True">
+                <FlowDocument>
+                    <Paragraph>
+                        <Span TextElement.FontSize="17">Nápověda</Span>
+                        <LineBreak/>
+
+                        <Span TextElement.FontSize="10" TextElement.FontStyle="Italic">Zde si můžete přečíst stručné informace o tom jak používat aplikaci.</Span>
+                        <LineBreak/>
+                        <LineBreak/>
+                        • Základní funkcí kalkulačky je vypočítat právě zadávanou operaci.
+                        <LineBreak/>
+                        • Pokud uživatel místo rovná se zmáčkne nějakou operaci, předchozí operace se vypočítá automaticky a její výsledek je
+                        nahrán do právě zadané operace
+                        <LineBreak/>
+                        <LineBreak/>
+                        • Funkce:
+                        <LineBreak/>
+                        <Bold>DEL</Bold> - smaže poslední cifru právě zadávaného čísla
+                        <LineBreak/>
+                        <Bold>CE</Bold> - smaže všechny čísla i operace
+                        <LineBreak/>
+                        <LineBreak/>
+                        • Čísla a operace můžete zádavat pomocí tlačítek nebo jejich alternativ na klávesnici<LineBreak/>
+                        • Klávesy pro speciální operace:
+                        <LineBreak/>
+                        <Bold>R</Bold> - pro odmocění <LineBreak/>
+                        <Bold>A</Bold> - pro absolutní hodnotu<LineBreak/>
+                        <Bold>^</Bold> [shift+6] - pro umocnění ( stupeň mocniny musí být celočícelný )<LineBreak/> 
+                        <Bold>!</Bold> [shift+1] - pro faktoriál                        
+                        <LineBreak/>
+                        <LineBreak/>
+                        • Operace
+                        <Bold>odmocniny</Bold> musí být zadána ve formátu
+                        <Bold>
+                            <Span TextElement.FontStyle="Italic">√(x) y</Span>
+                        </Bold> kde
+                        <Bold>
+                            <Span TextElement.FontStyle="Italic">x</Span>
+                        </Bold> je číslo odmocňované a
+                        <Bold>
+                            <Span TextElement.FontStyle="Italic">y</Span>
+                        </Bold> je celočíselný stupeň odmocniny
+
+
+
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+
+        </StackPanel>
+
+
+    </Grid>
+</Window>

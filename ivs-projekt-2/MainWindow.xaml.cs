@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CalcTests;
-
 namespace ivs_projekt_2
 {
     /// <summary>
@@ -28,24 +27,35 @@ namespace ivs_projekt_2
 
     public partial class MainWindow : Window
     {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        /*
+         * LOGIKA 
+         */
+
         string output = ""; //retezec, ktery se tiskne pri zadavani vypoctu
         string nmb = ""; //aktualne zadavane cislo ve stringovem formatu protoze ho tvorime postupnym pridavani charu
         string operation = ""; //ktera operace se ma provest
         double nmb1 = 0; //vzdy prvni cislo v operaci
         bool firstOp = true; // true znamena ze jsme na zacatku operace tj. v nmb1 jeste neni nahrana hodnota
         string err = "Syntax Error: Prosím zadejte číslo ve správném formátu."; // univerzalni chybova hlaska
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
 
         // tiskne cisla ihned pri jejich psani
         private void printOut(string x)
-        {
-                nmb = nmb + x;
-                output = output + x;
-                txt.Text = output;               
-        }
+            {
+            //abs je jedina operace, ktera nedovoluje za sebe psat nova cisla
+                if (operation != "abs")
+                {
+                    nmb = nmb + x;
+                    output = output + x;
+                    txt.Text = output;
+                }
+            }
+            
+        
 
         // pokud je jiz uzivatel zadal nejakou operaci a rozhodl se ji zmenit, prepiseme puvodni znamenka na aktualni zadanou operaci 
         private void clearOpSigns()
@@ -69,11 +79,13 @@ namespace ivs_projekt_2
         {
             if (x == "sqrt")
             {
-                output = "\u221A ( " + output + " )";
+                output = (output == "") ? "0" : output;
+                output = "\u221A ( " + output + " ) ";
                 txt.Text = output;             
             }
             else if (x == "abs")
             {
+                output = (output == "") ? "0" : output;
                 output = "| " + output + " |";
                 txt.Text = output;
             }
@@ -87,32 +99,158 @@ namespace ivs_projekt_2
         // vybere operaci tak, aby byla dale zpracovatelna v btneq
         private void selectOp(string x)
         {
-                // podminka, ktera zarucuje, ze kdyz nezavolame rovna se na konci operace, zavola se samo
-                if (!firstOp && operation != "")
-                {
-                    btneq.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                }
-                // nahrajeme prvni cislo v operaci do nmb1 pokud se jedna o prvni cislo
-                if (firstOp)
-                {
+            // podminka, ktera zarucuje, ze kdyz nezavolame rovna se na konci operace, zavola se samo
+            if (!firstOp && operation != "")
+            {
+                equals();
+            }
+            // nahrajeme prvni cislo v operaci do nmb1 pokud se jedna o prvni cislo
+            if (firstOp)
+            {
                 // nmb1 = double.Parse(nmb);
-                    if(!double.TryParse(nmb, out nmb1))
+                if (!double.TryParse(nmb, out nmb1))
+                {
+                    txt.Text = err;
+                }
+                firstOp = false;
+            }
+            clearOpSigns();
+            chooseOutput(x);
+            //vynulujeme nmb aby jsme do nej mohli nahravat druhe cislo v binarni operaci
+            nmb = "";
+            operation = x;
+        }
+
+        // Osetreni square funkce proti nezadanemu 2. cislu, zadane nule a zadanemu des. cislu
+        private void fixedSqrt()
+        {
+            if (nmb == "")
+            {
+                nmb = MathCalc.Root(nmb1, 2).ToString();
+                txt.Text = nmb;
+            }
+            else
+            {
+                int sqrtNmb = 0;
+                if (int.TryParse(nmb, out sqrtNmb))
+                {
+                    nmb = MathCalc.Root(nmb1, sqrtNmb).ToString();
+                    txt.Text = nmb;
+                }
+                else
+                {
+                    txt.Text = err;
+                }
+            }
+        }
+
+        //funkce pro vypocitani rovnice
+        private void equals()
+        {                  
+            double nmb2 = 0;
+            // zkousime parsovat nmb do nmb2, pokud to nevyjde vypiseme chybovou hlasku
+            // nmb2 ale nepotrebujeme do unarnich operaci a tak u nich chybu nevypisujeme
+            if (double.TryParse(nmb, out nmb2) || operation == "sqrt" || operation == "!" || operation == "abs")
+            {
+                // switch vybere operaci a zavola funkci z knihovny CalcMath
+                switch (operation)
+                {
+                    case "+":
+                        nmb = MathCalc.Add(nmb1, nmb2).ToString();
+                        txt.Text = nmb;
+                        break;
+                    case "-":
+                        nmb = MathCalc.Sub(nmb1, nmb2).ToString();
+                        txt.Text = nmb;
+                        break;
+                    case "*":
+                        nmb = MathCalc.Mul(nmb1, nmb2).ToString();
+                        txt.Text = nmb;
+                        break;
+                    case "/":
+                        nmb = MathCalc.Div(nmb1, nmb2).ToString();
+                        txt.Text = nmb;
+                        break;
+                    case "^":
+                        if (nmb2 % 1 == 0) // podminka pro cele cisla
+                        {
+                            nmb = MathCalc.Pow(nmb1, (int)nmb2).ToString();
+                            txt.Text = nmb;
+                        }
+                        else
                         {
                             txt.Text = err;
                         }
-                    firstOp = false;
+                        break;
+                    case "abs":
+                            nmb = MathCalc.Abs(nmb1).ToString();
+                            txt.Text = nmb;
+                        break;
+                    case "sqrt":
+                        fixedSqrt();       
+                        break;
+                    case "!":
+                        nmb = MathCalc.Fact(nmb1).ToString();
+                        txt.Text = nmb;
+                        break;                    
+                    case "":
+                        // pri kliknuti na rovna se bez zadane operace se nic neprovede
+                        break;
+                    default:
+                        txt.Text = err;
+                        break;
                 }
-                clearOpSigns();
-                chooseOutput(x);
-                //vynulujeme nmb aby jsme do nej mohli nahravat druhe cislo v binarni operaci
-                nmb = "";
-                operation = x;        
+                output = nmb;
+                operation = ""; // po rovna se zacina nova operace
+                firstOp = true; // po zmacknuti rovna se se dostavame na zacatek dalsi operace
+            } //if tryParse(nmb)
+            else
+            {
+                txt.Text = err;
+            }
+        } //equals()
+
+        private void delete()
+        {
+            //podminka proto, aby jsme nezacali mazat chary ze stringu ve kterem uz zadne nejsou
+            if (nmb.Length > 0)
+            {
+                output = output.Remove(output.Length - 1, 1);
+                nmb = nmb.Remove(nmb.Length - 1, 1);
+                txt.Text = output;
+            }
         }
+
+        //smaze posledni cifru cisla, s kterym zrovna pracujeme tj. bud prvni nebo druhe cislo v binarni operaci
+        private void clearAll()
+        {
+            //nastavi vsechny promenne do defaultniho stavu
+            firstOp = true;
+            output = "";
+            nmb = "";
+            nmb1 = 0;
+            operation = "";
+            txt.Text = output;
+        }
+
+        private void showHelp()
+        {
+            Help help = new Help();
+            help.Show();
+        }
+
+        /*
+         * ZACHYTAVANI EVENTU
+         */
+
+        //ovládání přes GUI
 
         private void txt_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+
+        //CISLA
 
         private void btn9_Click(object sender, RoutedEventArgs e)
         {
@@ -170,6 +308,8 @@ namespace ivs_projekt_2
             printOut(",");
         }
 
+        //OPERACE
+
         private void btnpl_Click(object sender, RoutedEventArgs e)
         {
             selectOp("+");
@@ -210,96 +350,33 @@ namespace ivs_projekt_2
             selectOp("abs");
         }
 
+        // FUNKCE
+
         private void btneq_Click(object sender, RoutedEventArgs e)
         {
-            // switch vybere operaci a zavola funkci z knihovny CalcMath
-            // pokud uzivatel nezada cislo nebo zada pouze carku, vypise se chybova hlaska - s jinymi patvary se knihovna popere sama
-            double nmb2 = 0;
-            // zkousime parsovat nmb do nmb2, pokud to nevyjde vypiseme chybovou hlasku
-            // nmb2 ale nepotrebujeme do unarnich operaci a tak u nich chybu nevypisujeme
-            if (double.TryParse(nmb,out nmb2)||operation=="sqrt"||operation=="!"||operation=="abs")
-            {
-                switch (operation)
-                {
-                    case "+":
-                        nmb = MathCalc.Add(nmb1, nmb2).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "-":
-                        nmb = MathCalc.Sub(nmb1, nmb2).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "*":
-                        nmb = MathCalc.Mul(nmb1, nmb2).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "/":
-                        nmb = MathCalc.Div(nmb1, nmb2).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "^":
-                        nmb = MathCalc.Pow(nmb1, (int)nmb2).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "abs":
-                        nmb = MathCalc.Abs(nmb1).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "sqrt":
-                        nmb = MathCalc.Root(nmb1, (int)nmb2).ToString();
-                        txt.Text = nmb;
-                        break;
-                    case "!":
-                        nmb = MathCalc.Fact(nmb1).ToString();
-                        txt.Text = nmb;
-                        break;
-                    // pri kliknuti na rovna se bez zadane operace se nic neprovede
-                    case "":
-                        break;
-                    default:
-                        txt.Text = err;
-                        break;
-                }
-                output = nmb;
-                operation = ""; // po rovna se zacina nova operace
-                firstOp = true; // po zmacknuti rovna se se dostavame na zacatek dalsi operace
-            } //if
-            else
-            {
-                txt.Text = err;
-            }
-        } // btneq_click()
-        //smaze posledni cifru cisla, s kterym zrovna pracujeme tj. bud prvni nebo druhe cislo v binarni operaci
+            equals();
+        } 
+        
         private void btnde_Click(object sender, RoutedEventArgs e)
         {
-            //podminka proto, aby jsme nezacali mazat chary ze stringu ve kterem uz zadne nejsou
-            if (nmb.Length > 0)
-            {
-                output = output.Remove(output.Length - 1, 1);
-                nmb = nmb.Remove(nmb.Length - 1, 1);
-                txt.Text = output;
-            }               
+            delete();               
         }
-        // clear all funkce
+
         private void btnce_Click(object sender, RoutedEventArgs e)
         {
-            //nastavi vsechny promenne do defaultniho stavu
-            firstOp = true;
-            output = "";
-            nmb = "";
-            nmb1 = 0;
-            operation = "";
-            txt.Text = output;
+            clearAll();
         }
 
         //  ovladání přes klávesnici
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
+            // CISLA 
+
             if (e.Key == Key.D0 || e.Key == Key.NumPad0)
             {
                 printOut("0");
             }
-            if (e.Key == Key.D1|| e.Key == Key.NumPad1)
+            if ((e.Key == Key.D1|| e.Key == Key.NumPad1) && !(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift)))
             {
                 printOut("1");
             }
@@ -319,7 +396,7 @@ namespace ivs_projekt_2
             {
                 printOut("5");
             }
-            if (e.Key == Key.D6 || e.Key == Key.NumPad6)
+            if ((e.Key == Key.D6 || e.Key == Key.NumPad6) && !(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift)))
             {
                 printOut("6");
             }
@@ -339,6 +416,9 @@ namespace ivs_projekt_2
             {
                 printOut(",");
             }
+
+            //OPERACE
+
             if (e.Key == Key.OemPlus|| e.Key == Key.Add)
             {
                 selectOp("+");
@@ -354,19 +434,7 @@ namespace ivs_projekt_2
             if (e.Key == Key.Divide)
             {
                 selectOp("/");
-            }
-            if (e.Key == Key.Enter)
-            {
-                btneq.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            if (e.Key == Key.Back)
-            {
-                btnde.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
-            if (e.Key == Key.Delete)
-            {
-                btnce.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-            }
+            }          
             if (e.Key == Key.D6 && (Keyboard.IsKeyDown(Key.LeftShift)|| Keyboard.IsKeyDown(Key.RightShift)))
             {
                 selectOp("^");
@@ -383,6 +451,26 @@ namespace ivs_projekt_2
             {
                 selectOp("abs");
             }
+
+            //FUNKCE
+
+            if (e.Key == Key.Enter)
+            {
+                equals();
+            }
+            if (e.Key == Key.Back)
+            {
+                delete();
+            }
+            if (e.Key == Key.Delete)
+            {
+                clearAll();
+            }
         } // OnKeyDownHandler()
+
+        private void btnhe_Click(object sender, RoutedEventArgs e)
+        {
+            showHelp();
+        }
     } //public class: main window
 } //namespace
