@@ -232,6 +232,16 @@ namespace ivs_projekt_2
             operation = "";
             txt.Text = output;
         }
+        // smaze aktualne zadavane cislo
+        private void clear()
+        {        
+            while (nmb.Length > 0)
+            {
+                output = output.Remove(output.Length - 1, 1);
+                nmb = nmb.Remove(nmb.Length - 1, 1);
+                txt.Text = output;
+            }
+        }
 
         private void showHelp()
         {
@@ -362,9 +372,13 @@ namespace ivs_projekt_2
             delete();               
         }
 
-        private void btnce_Click(object sender, RoutedEventArgs e)
+        private void btnc_Click(object sender, RoutedEventArgs e)
         {
             clearAll();
+        }
+        private void btnce_Click(object sender, RoutedEventArgs e)
+        {
+            clear();
         }
 
         //  ovladání přes klávesnici
@@ -461,16 +475,20 @@ namespace ivs_projekt_2
             if (e.Key == Key.Back)
             {
                 delete();
+            }   
+            if(e.Key == Key.C)
+            {
+                clear();
             }
             if (e.Key == Key.Delete)
             {
                 clearAll();
-            }
+            }           
         } // OnKeyDownHandler()
 
         private void btnhe_Click(object sender, RoutedEventArgs e)
         {
             showHelp();
-        }
+        }       
     } //public class: main window
 } //namespace
