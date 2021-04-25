@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt_2"
         mc:Ignorable="d"
-        Title="Nápověda" Height="423" Width="450" >
+        Title="Nápověda" Height="500" Width="450" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="0,0,0,-42">
         <StackPanel Margin="20,20,20,10">
-            <RichTextBox Height="auto" BorderThickness="0" IsReadOnly="True">
+            <RichTextBox Height="auto" BorderThickness="0" IsReadOnly="True" TextChanged="RichTextBox_TextChanged">
                 <FlowDocument>
                     <Paragraph>
                         <Span TextElement.FontSize="17">Nápověda</Span>
@@ -32,16 +32,24 @@
                         <LineBreak/>
                         <Bold>DEL</Bold> - smaže poslední cifru právě zadávaného čísla
                         <LineBreak/>
-                        <Bold>CE</Bold> - smaže všechny čísla i operace
+                        <Bold>CE</Bold> - smaže aktuálně zadávané číslo
+                        <LineBreak/>
+                        <Bold>C</Bold> - smaže všechny čísla i operace
                         <LineBreak/>
                         <LineBreak/>
                         • Čísla a operace můžete zádavat pomocí tlačítek nebo jejich alternativ na klávesnici<LineBreak/>
-                        • Klávesy pro speciální operace:
+                        • Klávesy pro speciální operace/funkce:
                         <LineBreak/>
                         <Bold>R</Bold> - pro odmocění <LineBreak/>
                         <Bold>A</Bold> - pro absolutní hodnotu<LineBreak/>
                         <Bold>^</Bold> [shift+6] - pro umocnění ( stupeň mocniny musí být celočícelný )<LineBreak/> 
                         <Bold>!</Bold> [shift+1] - pro faktoriál                        
+                        <LineBreak/>
+                        <Bold>Backspace</Bold> - pro DEL
+                        <LineBreak/>
+                        <Bold>Del</Bold> - pro C
+                        <LineBreak/>
+                        <Bold>C</Bold> - pro CE                      
                         <LineBreak/>
                         <LineBreak/>
                         • Operace
