@@ -18,6 +18,7 @@
                 </Trigger>
             </Style.Triggers>
 
+            <Setter Property="Focusable" Value="False"/>
             <Setter Property="Background" Value="{DynamicResource Background}" />
             <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
