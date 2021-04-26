@@ -30,6 +30,13 @@ namespace ivs_projekt_2
         public MainWindow()
         {
             InitializeComponent();
+
+            this.Closed += MainWindow_Closed;
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown(); // s ukoncenim aplikace uzavre i help menu
         }
 
         /*

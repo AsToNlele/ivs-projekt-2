@@ -5,14 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt_2"
         mc:Ignorable="d"
-        Title="Calculator" Height="370" Width="300"  KeyDown="OnKeyDownHandler" Topmost="True" ResizeMode="CanMinimize">
+        Title="Calculator" Height="500" Width="400"  KeyDown="OnKeyDownHandler" Topmost="True" ResizeMode="CanMinimize">
     <Window.Resources>
+        <SolidColorBrush x:Key="Background" Color="Black"/>
+        <SolidColorBrush x:Key="Foreground" Color="White"/>
+        <SolidColorBrush x:Key="Border" Color="Gray"/>
 
         <Style TargetType="Button">
-            <Setter Property="Focusable" Value="False"/>
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Height" Value="30"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gray"/>
+                </Trigger>
+            </Style.Triggers>
+
+            <Setter Property="Background" Value="{DynamicResource Background}" />
+            <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Border}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
+
+
 
     </Window.Resources>
 
@@ -33,9 +53,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="txt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="" TextWrapping="Wrap" TextChanged="txt_TextChanged" IsReadOnly="True"/>
+        <TextBox x:Name="txt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="" TextWrapping="Wrap" TextChanged="txt_TextChanged" IsReadOnly="True" Background="{DynamicResource Background}" Foreground="{DynamicResource Foreground}" BorderBrush="{DynamicResource Foreground}" />
 
-        <Button x:Name="btnc" Grid.Row="1" Grid.Column="0" Content="C" Click="btnc_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnc" Grid.Row="1" Grid.Column="0" Content="C" Click="btnc_Click" Width="auto" Height="auto"/>
         <Button x:Name="btnce" Grid.Row="1" Grid.Column="1" Content="CE" Click="btnce_Click" Width="auto" Height="auto" />
         <Button x:Name="btnde" Grid.Row="1" Grid.Column="2" Content="DEL" Click="btnde_Click" Width="auto" Height="auto" />
         <Button x:Name="btnhe" Grid.Row="1" Grid.Column="4" Content="Help" Click="btnhe_Click" Width="auto" Height="auto" />
