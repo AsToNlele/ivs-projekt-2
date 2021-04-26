@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt_2"
         mc:Ignorable="d"
-        Title="Calcul8or" Height="370" Width="300"  KeyDown="OnKeyDownHandler" Topmost="True" ResizeMode="CanMinimize">
+        Title="Calculator" Height="370" Width="300"  KeyDown="OnKeyDownHandler" Topmost="True" ResizeMode="CanMinimize">
     <Window.Resources>
 
         <Style TargetType="Button">
@@ -17,45 +17,52 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto" MinWidth="0"/>
-            <ColumnDefinition Width="auto" MinWidth="0"/>
-        </Grid.ColumnDefinitions>
-        <Frame x:Name="Main" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="0,0,287,0"/>
-        <TextBox  x:Name="txt" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Height="60" TextChanged="txt_TextChanged" IsReadOnly="True" Grid.Row="1" />
 
-        <Button x:Name="btn9"  Content="9" Grid.Column="1" HorizontalAlignment="Left" Margin="67,93,0,0" VerticalAlignment="Top"   Click="btn9_Click" Grid.Row="1"/>
-        <Button x:Name="btn8" Content="8" Grid.Column="1" HorizontalAlignment="Center" Margin="0,92,0,0"   VerticalAlignment="Top" Click="btn8_Click" Grid.Row="1"/>
-        <Button x:Name="btn7"  Content="7" Grid.Column="1" HorizontalAlignment="Left" Margin="165,92,0,0"  VerticalAlignment="Top" Click="btn7_Click" Grid.Row="1"/>
-        <Button x:Name="btn6" Content="6" Grid.Column="1" HorizontalAlignment="Left" Margin="67,127,0,0"  VerticalAlignment="Top" Click="btn6_Click" Grid.Row="1"/>
-        <Button x:Name="btn5" Content="5" Grid.Column="1" HorizontalAlignment="Center" Margin="0,127,0,0"  VerticalAlignment="Top" Click="btn5_Click" Grid.Row="1"/>
-        <Button x:Name="btn4" Content="4" Grid.Column="1" HorizontalAlignment="Left" Margin="165,127,0,0"  VerticalAlignment="Top" Click="btn4_Click" Grid.Row="1"/>
-        <Button x:Name="btn3" Content="3" Grid.Column="1" HorizontalAlignment="Left" Margin="67,161,0,0"  VerticalAlignment="Top" Click="btn3_Click" Grid.Row="1"/>
-        <Button x:Name="btn2" Content="2" Grid.Column="1" HorizontalAlignment="Center" Margin="0,161,0,0"  VerticalAlignment="Top" Click="btn2_Click" Grid.Row="1"/>
-        <Button x:Name="btn1" Content="1" Grid.Column="1" HorizontalAlignment="Left" Margin="165,161,0,0"  VerticalAlignment="Top" Click="btn1_Click" Grid.Row="1"/>
-        <Button x:Name="btneq" Content="=" Grid.Column="1" HorizontalAlignment="Left" Margin="165,198,0,0"   VerticalAlignment="Top" Click="btneq_Click" Grid.Row="1"/>
-        <Button x:Name="btnpl" Content="+" Grid.Column="1" HorizontalAlignment="Left" Margin="36,258,0,0"  VerticalAlignment="Top" Click="btnpl_Click" Grid.Row="1"/>
-        <Button x:Name="btnmi" Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="87,258,0,0"  VerticalAlignment="Top" Click="btnmi_Click" Grid.Row="1"/>
-        <Button x:Name="btnti" Content="*" Grid.Column="1" HorizontalAlignment="Left" Margin="136,258,0,0"  VerticalAlignment="Top" Click="btnti_Click" Grid.Row="1"/>
-        <Button x:Name="btndi" Content="/" Grid.Column="1" HorizontalAlignment="Left" Margin="185,258,0,0"  VerticalAlignment="Top" Click="btndi_Click" Grid.Row="1"/>
-        <Button x:Name="btnfa" Content="!" Grid.Column="1" HorizontalAlignment="Left" Margin="36,297,0,0"  VerticalAlignment="Top" Click="btnfa_Click" Grid.Row="1"/>
-        <Button x:Name="btnpo" Content="^" Grid.Column="1" HorizontalAlignment="Left" Margin="87,297,0,0"  VerticalAlignment="Top" Click="btnpo_Click" Grid.Row="1"/>
-        <Button x:Name="btnsq" Content="√" Grid.Column="1" HorizontalAlignment="Left" Margin="136,297,0,0"  VerticalAlignment="Top" Click="btnsq_Click" Grid.Row="1"/>
-        <Button x:Name="btnab" Content="Abs" Grid.Column="1" HorizontalAlignment="Left" Margin="185,297,0,0"  VerticalAlignment="Top" Click="btnab_Click" Grid.Row="1"/>
-        <Button x:Name="btn0" Content="0" Grid.Column="1" HorizontalAlignment="Center" Margin="0,198,0,0"  VerticalAlignment="Top" Click="btn0_Click" Grid.Row="1" />
-        <Button x:Name="btnco" Content="," Grid.Column="1" HorizontalAlignment="Left" Margin="67,198,0,0"  VerticalAlignment="Top" Click="btnco_Click" Grid.Row="1" />
-        <Button x:Name="btnc" Content="C" Grid.Column="1" HorizontalAlignment="Left" Margin="10,93,0,0"  VerticalAlignment="Top" Click="btnc_Click" Grid.Row="1" />
-        <Button x:Name="btnce" Content="CE" Grid.Column="1" HorizontalAlignment="Left" Margin="10,127,0,0"  VerticalAlignment="Top" Click="btnce_Click" Grid.Row="1" />
-        <Button x:Name="btnde" Content="DEL" Grid.Column="1" HorizontalAlignment="Left" Margin="10,161,0,0"  VerticalAlignment="Top" Click="btnde_Click" Grid.Row="1" />
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="30,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="0" Grid.Row="1"/>
-        <Button x:Name="btnhe" Content="Help" Grid.Column="1" HorizontalAlignment="Left" Margin="228,93,0,0" VerticalAlignment="Top" Click="btnhe_Click"  Width="29" Grid.Row="1" />
+        <TextBox x:Name="txt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="" TextWrapping="Wrap" TextChanged="txt_TextChanged" IsReadOnly="True"/>
 
+        <Button x:Name="btnc" Grid.Row="1" Grid.Column="0" Content="C" Click="btnc_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnce" Grid.Row="1" Grid.Column="1" Content="CE" Click="btnce_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnde" Grid.Row="1" Grid.Column="2" Content="DEL" Click="btnde_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnhe" Grid.Row="1" Grid.Column="4" Content="Help" Click="btnhe_Click" Width="auto" Height="auto" />
+
+        <Button x:Name="btnfa" Grid.Row="2" Grid.Column="0" Content="!" Click="btnfa_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnpo" Grid.Row="2" Grid.Column="1" Content="^" Click="btnpo_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnsq" Grid.Row="2" Grid.Column="2" Content="√" Click="btnsq_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnab" Grid.Row="2" Grid.Column="3" Content="Abs" Click="btnab_Click" Width="auto" Height="auto" />
+
+        <Button x:Name="btn7" Grid.Row="3" Grid.Column="0" Content="7" Click="btn7_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn8" Grid.Row="3" Grid.Column="1" Content="8" Click="btn8_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn9"  Grid.Row="3" Grid.Column="2" Content="9" Click="btn9_Click" Width="auto" Height="auto" />
+        <Button x:Name="btndi" Grid.Row="3" Grid.Column="3" Content="/" Click="btndi_Click" Width="auto" Height="auto" />
+
+        <Button x:Name="btn4" Grid.Row="4" Grid.Column="0" Content="4" Click="btn4_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn5" Grid.Row="4" Grid.Column="1" Content="5" Click="btn5_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn6" Grid.Row="4" Grid.Column="2" Content="6" Click="btn6_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnti" Grid.Row="4" Grid.Column="3" Content="*" Click="btnti_Click" Width="auto" Height="auto" />
+
+        <Button x:Name="btn1" Grid.Row="5" Grid.Column="0" Content="1" Click="btn1_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn2" Grid.Row="5" Grid.Column="1" Content="2" Click="btn2_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn3" Grid.Row="5" Grid.Column="2" Content="3" Click="btn3_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnmi" Grid.Row="5" Grid.Column="3" Content="-" Click="btnmi_Click" Width="auto" Height="auto" />
+
+        <Button x:Name="btnco" Grid.Row="6" Grid.Column="0" Content="," Click="btnco_Click" Width="auto" Height="auto" />
+        <Button x:Name="btn0" Grid.Row="6" Grid.Column="1" Content="0" Click="btn0_Click" Width="auto" Height="auto" />
+        <Button x:Name="btneq" Grid.Row="6" Grid.Column="2" Content="=" Click="btneq_Click" Width="auto" Height="auto" />
+        <Button x:Name="btnpl" Grid.Row="6" Grid.Column="3" Content="+" Click="btnpl_Click" Width="auto" Height="auto" />
     </Grid>
 </Window>
