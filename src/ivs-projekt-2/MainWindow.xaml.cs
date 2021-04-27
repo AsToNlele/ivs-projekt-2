@@ -323,6 +323,7 @@ namespace ivs_projekt_2
         {
             Help help = new Help(); //inicializace nového Helpu
             help.Show(); // zobrazení helpu
+            help.Topmost = true;
         }
 
         /*
