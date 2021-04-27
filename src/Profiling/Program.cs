@@ -104,3 +104,4 @@ namespace Profiling
         }
     }
 }
+/*** Konec souboru Program.cs ***/

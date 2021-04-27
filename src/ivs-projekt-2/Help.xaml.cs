@@ -49,3 +49,4 @@ namespace ivs_projekt_2
         }
     }
 }
+/*** Konec souboru Help.xaml.cs ***/
