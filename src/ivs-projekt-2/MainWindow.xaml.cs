@@ -312,8 +312,8 @@ namespace ivs_projekt_2
             {
                 output = output.Remove(output.Length - 1, 1); //smazani z outputu
                 nmb = nmb.Remove(nmb.Length - 1, 1); //Smazani z čisla
-                txt.Text = output; //upraveny output
             }
+            txt.Text = output; //upraveny output
         }
         /**
         * Funkce pro vyvolání nabídky HELP
