@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt_2"
         mc:Ignorable="d"
-        Title="Calculator" Height="500" Width="400"  KeyDown="OnKeyDownHandler" Topmost="True" ResizeMode="CanMinimize">
+        Title="Kalkulačka" Height="500" Width="400"  KeyDown="OnKeyDownHandler" Topmost="True" ResizeMode="CanMinimize">
     <Window.Resources>
         <SolidColorBrush x:Key="Background" Color="Black"/>
         <SolidColorBrush x:Key="Foreground" Color="White"/>

@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ivs_projekt_2"
         mc:Ignorable="d"
+        Background="{DynamicResource Background}"
         Title="Nápověda" Height="500" Width="450" ResizeMode="CanMinimize">
     <Window.Resources>
+        <SolidColorBrush x:Key="Background" Color="Black"/>
+        <SolidColorBrush x:Key="Foreground" Color="White"/>
         <Style TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+        <Style TargetType="RichTextBox">
+            <Setter Property="Background" Value="{DynamicResource Background}" />
+            <Setter Property="Foreground" Value="{DynamicResource Foreground}" />
         </Style>
     </Window.Resources>
     <Grid Margin="0,0,0,-42">
@@ -37,19 +44,23 @@
                         <Bold>C</Bold> - smaže všechny čísla i operace
                         <LineBreak/>
                         <LineBreak/>
-                        • Čísla a operace můžete zádavat pomocí tlačítek nebo jejich alternativ na klávesnici<LineBreak/>
+                        • Čísla a operace můžete zádavat pomocí tlačítek nebo jejich alternativ na klávesnici
+                        <LineBreak/>
                         • Klávesy pro speciální operace/funkce:
                         <LineBreak/>
-                        <Bold>R</Bold> - pro odmocění <LineBreak/>
-                        <Bold>A</Bold> - pro absolutní hodnotu<LineBreak/>
-                        <Bold>^</Bold> [shift+6] - pro umocnění ( stupeň mocniny musí být celočícelný )<LineBreak/> 
-                        <Bold>!</Bold> [shift+1] - pro faktoriál                        
+                        <Bold>R</Bold> - pro odmocění
+                        <LineBreak/>
+                        <Bold>A</Bold> - pro absolutní hodnotu
+                        <LineBreak/>
+                        <Bold>^</Bold> [shift+6] - pro umocnění ( stupeň mocniny musí být celočícelný )
+                        <LineBreak/>
+                        <Bold>!</Bold> [shift+1] - pro faktoriál
                         <LineBreak/>
                         <Bold>Backspace</Bold> - pro DEL
                         <LineBreak/>
                         <Bold>Del</Bold> - pro C
                         <LineBreak/>
-                        <Bold>C</Bold> - pro CE                      
+                        <Bold>C</Bold> - pro CE
                         <LineBreak/>
                         <LineBreak/>
                         • Operace
@@ -75,3 +86,4 @@
 
     </Grid>
 </Window>
+

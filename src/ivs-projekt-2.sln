@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Profiling", "Profiling\Prof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ivs-projekt-2", "ivs-projekt-2\ivs-projekt-2.csproj", "{9484AAD8-4049-4293-B500-168AE542CD99}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Instalator", "Instalator\Instalator.vdproj", "{2E3CBDB1-2F72-4E1E-AC61-B5F40E009D71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{9484AAD8-4049-4293-B500-168AE542CD99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9484AAD8-4049-4293-B500-168AE542CD99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9484AAD8-4049-4293-B500-168AE542CD99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3CBDB1-2F72-4E1E-AC61-B5F40E009D71}.Debug|Any CPU.ActiveCfg = Debug
+		{2E3CBDB1-2F72-4E1E-AC61-B5F40E009D71}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
