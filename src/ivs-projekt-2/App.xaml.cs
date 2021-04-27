@@ -9,7 +9,7 @@ using System.Windows;
 namespace ivs_projekt_2
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Interakční logika pro App.xaml
     /// </summary>
     public partial class App : Application
     {

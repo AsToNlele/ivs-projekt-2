@@ -54,7 +54,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="txt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="" TextWrapping="Wrap" TextChanged="txt_TextChanged" IsReadOnly="True" Background="{DynamicResource Background}" Foreground="{DynamicResource Foreground}" BorderBrush="{DynamicResource Foreground}" />
+        <TextBox x:Name="txt" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="" TextWrapping="Wrap" FontSize="20" TextChanged="txt_TextChanged" IsReadOnly="True" Background="{DynamicResource Background}" Foreground="{DynamicResource Foreground}" BorderBrush="{DynamicResource Foreground}" />
 
         <Button x:Name="btnc" Grid.Row="1" Grid.Column="0" Content="C" Click="btnc_Click" Width="auto" Height="auto"/>
         <Button x:Name="btnce" Grid.Row="1" Grid.Column="1" Content="CE" Click="btnce_Click" Width="auto" Height="auto" />

@@ -21,9 +21,11 @@ using System.Text;
 
 namespace CalcTests
 {
-    
-    
-    
+
+
+    /// <summary>
+    /// Matematická knihovna pro kalkulačku
+    /// </summary>
     class MathCalc
     {
         /**

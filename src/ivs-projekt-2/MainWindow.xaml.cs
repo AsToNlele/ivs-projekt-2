@@ -33,9 +33,9 @@ namespace ivs_projekt_2
 {
 
 
-    /**
-    * Inicializace okna pro kalkulačku
-    */
+    /// <summary>
+    /// Interakční logika pro MainWindows.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
 

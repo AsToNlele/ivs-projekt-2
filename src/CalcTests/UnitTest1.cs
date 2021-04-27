@@ -2,6 +2,9 @@ using NUnit.Framework;
 
 namespace CalcTests
 {
+    /// <summary>
+    /// Testovaci skript pro matematickou knihovnu
+    /// </summary>
     public class Tests
     {
         [SetUp]
