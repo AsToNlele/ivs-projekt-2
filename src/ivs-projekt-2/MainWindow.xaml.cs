@@ -595,7 +595,7 @@ namespace ivs_projekt_2
             {
                 printOut("7"); //tisk zvolene klavesy
             }
-            if (e.Key == Key.D8 || e.Key == Key.NumPad8) //klavesa 8
+            if ((e.Key == Key.D8 || e.Key == Key.NumPad8) && !(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift))) //klavesa 8
             {
                 printOut("8"); //tisk zvolene klavesy
             }
@@ -618,11 +618,11 @@ namespace ivs_projekt_2
             {
                 selectOp("-"); //zvoleni prislusne operace
             }
-            if (e.Key == Key.Multiply) //klavesa *
+            if (e.Key == Key.Multiply || (e.Key == Key.D8 && (Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift)))) //klavesa *
             {
                 selectOp("*"); //zvoleni prislusne operace
             }
-            if (e.Key == Key.Divide)  //klavesa /
+            if (e.Key == Key.Divide || e.Key == Key.OemOpenBrackets || e.Key == Key.OemQuestion)  //klavesa /
             {
                 selectOp("/"); //zvoleni prislusne operace
             }
