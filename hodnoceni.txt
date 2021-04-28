@@ -1,4 +1,4 @@
-xlogin01 X (skutečně řešená část projektu)
-xlogin02 X (skutečně řešená část projektu)
-xlogin03 X (skutečně řešená část projektu)
+xhyblp01 134 (testování,dokumentace)
+xcelak00 134 (matematická knihovna,profilling,installer,makefile)
+xklond00 132 (napojení GUI, mockup)
 xdubas01 0 (nic)
