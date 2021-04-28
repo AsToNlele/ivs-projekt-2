@@ -230,3 +230,6 @@ _Pvt_Extensions
 .fake/
 *.binlog
 /.dotnet
+
+!src/Profiling/bin/Debug/netcoreapp3.1/soubor.txt
+!src/Profiling/bin/Release/netcoreapp3.1/soubor.txt
