@@ -1,0 +1,22 @@
+------VI VON ZULUL-------
+xhyblp01 - Petr Hýbl - vedoucí týmu
+xcelak00 - Alexandr Čelakovský 
+xklond00 - Dominik Klon
+----------Ůkoly-------------
+Klon - GUI Kalkulačky, instalátor
+Čelakovský - Matematická knihovna
+Hýbl-  Testing, dokumentace,komunikace
+---------Termíny----------
+30.3 - Kontrola #1 - návrh
+7.4  -  Kontrola #2 - knihovna
+14.4 - Kontrola #3 - testy + gui
+28.4 - Kontrola #4 - dokumentace
+29.4 - Odevzdání
+--------Repozitář------
+Volíme repozitář na GitHubu.
+odkaz: přístup povolen
+https://github.com/AsToNlele/ivs-projekt-2
+---Komunikační kanály------
+Discord - Speciální soukromý voice chat i text chat
+Messenger pro urgentní komunikaci mezi kolegy
+--------------------------------------
