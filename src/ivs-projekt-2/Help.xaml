@@ -44,15 +44,15 @@
                         <Bold>C</Bold> - smaže všechny čísla i operace
                         <LineBreak/>
                         <LineBreak/>
-                        • Čísla a operace můžete zádavat pomocí tlačítek nebo jejich alternativ na klávesnici
+                        • Čísla a operace můžete zadávat pomocí tlačítek nebo jejich alternativ na klávesnici
                         <LineBreak/>
                         • Klávesy pro speciální operace/funkce:
                         <LineBreak/>
-                        <Bold>R</Bold> - pro odmocění
+                        <Bold>R</Bold> - pro odmocnění
                         <LineBreak/>
                         <Bold>A</Bold> - pro absolutní hodnotu
                         <LineBreak/>
-                        <Bold>^</Bold> [shift+6] - pro umocnění ( stupeň mocniny musí být celočícelný )
+                        <Bold>^</Bold> [shift+6] - pro umocnění (stupeň mocniny musí být celočíselný)
                         <LineBreak/>
                         <Bold>!</Bold> [shift+1] - pro faktoriál
                         <LineBreak/>
