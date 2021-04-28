@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Profiling": {
-      "commandName": "Project",
-      "commandLineArgs": " soubor.txt"
-    }
-  }
-}

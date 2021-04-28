@@ -231,5 +231,5 @@ _Pvt_Extensions
 *.binlog
 /.dotnet
 
-!src/Profiling/bin/Debug/netcoreapp3.1/soubor.txt
-!src/Profiling/bin/Release/netcoreapp3.1/soubor.txt
+!src/Profiling/bin/Debug/soubor.txt
+!src/Profiling/bin/Release/soubor.txt
