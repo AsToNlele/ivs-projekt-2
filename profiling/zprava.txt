@@ -1,0 +1,1 @@
+Program tráví nejvíce času na funkci WriteLine. V funkci "SmerodatnaOdchylka" traví program nejvíce času na funkci umocňování (Pow). Funkce sčítání (Add) je použita 2x více než umocňovací funkce (Pow) a nemá téměř žádný dopad na čas. Při optimalizaci bych se tedy zaměřil na funkci Pow.
