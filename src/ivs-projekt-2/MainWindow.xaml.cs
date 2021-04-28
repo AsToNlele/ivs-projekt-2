@@ -95,7 +95,7 @@ namespace ivs_projekt_2
         private void printOut(string x)
         {
 
-            if (operation != "abs") // funkce pro absolutní hodnotu je jedina operace, ktera nedovoluje za sebe psat nova cisla
+            if (operation != "abs"|| operation != "!") // funkce pro absolutní hodnotu a faktoriál jsou jedine operace, ktera nedovolují za sebe psat nova cisla
             {
                 nmb = nmb + x; // pričteni xka do čísla
                 output = output + x; // přidání xka do stringu na výstup
