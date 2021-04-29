@@ -15,6 +15,8 @@ pack:
 
 	mkdir "..\..\pack\repo"
 	xcopy ".." "..\..\pack\repo" /h /i /e /c /r /y /k
+	del /s /q "..\..\pack\repo\src\.vs"
+	rmdir /s /q "..\..\pack\repo\src\.vs"
 	cd "..\..\pack" & zip -r "xhyblp01_xcelak00_xklond00.zip" *
 
 clean:
