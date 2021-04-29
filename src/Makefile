@@ -51,4 +51,4 @@ profile:
 
 help:
 	echo "Pred Spustenim:"
-	echo "Doporučujeme Visual Studio 2019 a zkompilovat Release verze ivs-projekt-2 a Profiling"
+	echo "Doporucujeme Visual Studio 2019 a zkompilovat Release verze ivs-projekt-2 a Profiling"
