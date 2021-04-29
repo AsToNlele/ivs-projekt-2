@@ -15,6 +15,7 @@ pack:
 
 	mkdir "..\..\pack\repo"
 	xcopy ".." "..\..\pack\repo" /h /i /e /c /r /y /k
+	cd "..\..\pack" & zip -r "xhyblp01_xcelak00_xklond00.zip" *
 
 clean:
 	del /s /q ivs-projekt-2\bin
@@ -22,10 +23,16 @@ clean:
 	del /s /q ivs-projekt-2\obj
 	rmdir /s /q ivs-projekt-2\obj
 
+	del /s /q CalcTests\bin
+	rmdir /s /q CalcTests\bin
+	del /s /q CalcTests\obj
+	rmdir /s /q CalcTests\obj
+
 	del /s /q Instalator\Debug
 	rmdir /s /q Instalator\Debug
 	del /s /q Instalator\Release
 	rmdir /s /q Instalator\Release
+
 	del /s /q Profiling\obj
 	rmdir /s /q Profiling\obj
 	xcopy /q "Profiling\bin\Debug\soubor.txt" .
@@ -33,7 +40,6 @@ clean:
 	xcopy /q "soubor.txt" "Profiling\bin\Debug\"
 	xcopy /q "soubor.txt" "Profiling\bin\Release\"
 	del "soubor.txt"
-	
 
 run:
 	ivs-projekt-2\bin\Release\ivs-projekt-2.exe
