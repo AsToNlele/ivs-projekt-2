@@ -1,18 +1,15 @@
-using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CalcTests
 {
+    [TestClass]
     /// <summary>
     /// Testovaci skript pro matematickou knihovnu
     /// </summary>
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
+        [TestMethod]
         public void Add()
         {
             Assert.AreEqual(25, MathCalc.Add(10, 15));
@@ -22,7 +19,7 @@ namespace CalcTests
             Assert.AreEqual(-96, MathCalc.Add(4, -100));
             Assert.AreEqual(1000000000000000015, MathCalc.Add(1000000000000000000, 15));
         }
-        [Test]
+        [TestMethod]
         public void Sub()
         {
             Assert.AreEqual(-5, MathCalc.Sub(10, 15));
@@ -31,7 +28,7 @@ namespace CalcTests
             Assert.AreEqual(104, MathCalc.Sub(4, -100));
             Assert.AreEqual(-999999999999999900, MathCalc.Sub(-1000000000000000000, -100));
         }
-        [Test]
+        [TestMethod]
         public void Mul()
         {
             Assert.AreEqual(-150, MathCalc.Mul(-10, 15));
@@ -40,16 +37,16 @@ namespace CalcTests
             Assert.AreEqual(-400000, MathCalc.Mul(4000, -100));
             Assert.AreEqual(15000000000000000000, MathCalc.Mul(1000000000000000000, 15));
         }
-        [Test]
+        [TestMethod]
         public void Div()
         {
             Assert.AreEqual(-1, MathCalc.Div(-10, 10));
             Assert.AreEqual(0, MathCalc.Div(0, 10));
             Assert.AreEqual(-40, MathCalc.Div(4000, -100));
             Assert.AreEqual(10, MathCalc.Div(100, 10));
-            
+
         }
-        [Test]
+        [TestMethod]
         public void Pow()
         {
             Assert.AreEqual(-1000, MathCalc.Pow(-10, 3));
@@ -57,18 +54,18 @@ namespace CalcTests
             Assert.AreEqual(100, MathCalc.Pow(-10, 2));
             Assert.AreEqual(-1000, MathCalc.Pow(-10, 3));
             Assert.AreEqual(512, MathCalc.Pow(2, 9));
-        
+
         }
-        [Test]
+        [TestMethod]
         public void Root()
         {
             Assert.AreEqual(0, MathCalc.Root(0, 2));
             Assert.AreEqual(-3, MathCalc.Root(-27, 3));
             Assert.AreEqual(12, MathCalc.Root(12, 1));
             Assert.AreEqual(2, MathCalc.Root(16, 4));
-        
+
         }
-        [Test]
+        [TestMethod]
         public void Abs()
         {
             Assert.AreEqual(2, MathCalc.Abs(2));
