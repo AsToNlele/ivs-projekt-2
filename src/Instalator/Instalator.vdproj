@@ -16,7 +16,7 @@
         "Entry"
         {
         "MsmKey" = "8:_467D825877C9C37FD72C7F6A2B0CD510"
-        "OwnerKey" = "8:_AC420C31861441E989DF505925A2DF87"
+        "OwnerKey" = "8:_FCA7B72ED1424969929FF2FB8F02EFCD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -27,7 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AC420C31861441E989DF505925A2DF87"
+        "MsmKey" = "8:_FCA7B72ED1424969929FF2FB8F02EFCD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -40,7 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AC420C31861441E989DF505925A2DF87"
+        "OwnerKey" = "8:_FCA7B72ED1424969929FF2FB8F02EFCD"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -61,6 +61,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -77,6 +85,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -342,13 +358,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_AC420C31861441E989DF505925A2DF87"
+            "Target" = "8:_FCA7B72ED1424969929FF2FB8F02EFCD"
             "Folder" = "8:_6A37B7AADF28408C906DF2079A53D72E"
             "WorkingFolder" = "8:_74D2888A7A3A4EB883935E60135C3D1A"
             "Icon" = "8:_9F189F9D8A6A48CB82DCF774BF2F6DB8"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DCC338B124B147B9994462841C6E6A4B"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7EB7E70A17CA4F66BA5E638BC0480A24"
             {
             "Name" = "8:Kalkulačka"
             "Arguments" = "8:"
@@ -356,7 +372,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_AC420C31861441E989DF505925A2DF87"
+            "Target" = "8:_FCA7B72ED1424969929FF2FB8F02EFCD"
             "Folder" = "8:_1EF332A474014DC7960982182C88D38E"
             "WorkingFolder" = "8:_74D2888A7A3A4EB883935E60135C3D1A"
             "Icon" = "8:_9F189F9D8A6A48CB82DCF774BF2F6DB8"
@@ -761,9 +777,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AC420C31861441E989DF505925A2DF87"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FCA7B72ED1424969929FF2FB8F02EFCD"
             {
-            "SourcePath" = "8:..\\ivs-projekt-2\\obj\\Debug\\ivs-projekt-2.exe"
+            "SourcePath" = "8:..\\ivs-projekt-2\\obj\\Release\\ivs-projekt-2.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_74D2888A7A3A4EB883935E60135C3D1A"
