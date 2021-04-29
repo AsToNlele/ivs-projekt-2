@@ -4,7 +4,17 @@ all:
 	ivs-projekt-2\bin\Release\ivs-projekt-2.exe
 
 pack:
-	echo "pack"
+	if exist "..\..\pack" (rmdir "..\..\pack\" /s /q )
+	mkdir "..\..\pack"
+
+	mkdir "..\..\pack\doc"
+	xcopy "..\..\doc" "..\..\pack\doc" /h /i /e /c /r /y /k
+
+	mkdir "..\..\pack\install"
+	xcopy "..\..\install" "..\..\pack\install"
+
+	mkdir "..\..\pack\repo"
+	xcopy ".." "..\..\pack\repo" /h /i /e /c /r /y /k
 
 clean:
 	del /s /q ivs-projekt-2\bin
